@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Thu Jul 27 00:57:40 2023
+# Process ID: 52752
+# Current directory: D:/Git/radio_periph_lab/vivado/radio_periph_lab.runs/synth_1
+# Command line: vivado.exe -log design_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
+# Log file: D:/Git/radio_periph_lab/vivado/radio_periph_lab.runs/synth_1/design_1_wrapper.vds
+# Journal file: D:/Git/radio_periph_lab/vivado/radio_periph_lab.runs/synth_1\vivado.jou
+# Running On: Thuong-Nguyen-PC, OS: Windows, CPU Frequency: 2592 MHz, CPU Physical cores: 6, Host memory: 17073 MB
+#-----------------------------------------------------------
+source design_1_wrapper.tcl -notrace

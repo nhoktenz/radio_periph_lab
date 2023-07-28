@@ -1,0 +1,1 @@
+fir2_3125.vhd,vhdl,xil_defaultlib,../../../../../../../ip_repo/full_radio/src/fir2_3125/sim/fir2_3125.vhd,

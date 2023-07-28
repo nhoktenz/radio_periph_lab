@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../full_radio_v1_0_project.gen/sources_1/ip/dds_compiler_0/sim/dds_compiler_0.vhd" \
+
+nosort

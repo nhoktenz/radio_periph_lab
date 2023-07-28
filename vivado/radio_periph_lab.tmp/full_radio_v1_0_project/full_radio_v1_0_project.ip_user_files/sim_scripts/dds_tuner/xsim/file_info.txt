@@ -1,0 +1,1 @@
+dds_tuner.vhd,vhdl,xil_defaultlib,../../../../../../../ip_repo/full_radio/src/dds_tuner/sim/dds_tuner.vhd,
