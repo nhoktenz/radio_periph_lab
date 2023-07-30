@@ -63,7 +63,7 @@ ENTITY dds_compiler_0 IS
     s_axis_phase_tvalid : IN STD_LOGIC;
     s_axis_phase_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     m_axis_data_tvalid : OUT STD_LOGIC;
-    m_axis_data_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+    m_axis_data_tdata : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
   );
 END dds_compiler_0;
 
@@ -135,7 +135,7 @@ ARCHITECTURE dds_compiler_0_arch OF dds_compiler_0 IS
       s_axis_config_tlast : IN STD_LOGIC;
       m_axis_data_tvalid : OUT STD_LOGIC;
       m_axis_data_tready : IN STD_LOGIC;
-      m_axis_data_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      m_axis_data_tdata : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       m_axis_data_tlast : OUT STD_LOGIC;
       m_axis_data_tuser : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
       m_axis_phase_tvalid : OUT STD_LOGIC;
@@ -160,7 +160,7 @@ ARCHITECTURE dds_compiler_0_arch OF dds_compiler_0 IS
   ATTRIBUTE X_INTERFACE_PARAMETER OF aresetn: SIGNAL IS "XIL_INTERFACENAME aresetn_intf, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF aresetn: SIGNAL IS "xilinx.com:signal:reset:1.0 aresetn_intf RST";
   ATTRIBUTE X_INTERFACE_INFO OF m_axis_data_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_DATA TDATA";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF m_axis_data_tvalid: SIGNAL IS "XIL_INTERFACENAME M_AXIS_DATA, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF m_axis_data_tvalid: SIGNAL IS "XIL_INTERFACENAME M_AXIS_DATA, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF m_axis_data_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_DATA TVALID";
   ATTRIBUTE X_INTERFACE_INFO OF s_axis_phase_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_PHASE TDATA";
   ATTRIBUTE X_INTERFACE_PARAMETER OF s_axis_phase_tvalid: SIGNAL IS "XIL_INTERFACENAME S_AXIS_PHASE, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0";
@@ -176,15 +176,15 @@ BEGIN
       C_HAS_PHASE_OUT => 0,
       C_HAS_PHASEGEN => 1,
       C_HAS_SINCOS => 1,
-      C_LATENCY => 7,
+      C_LATENCY => 8,
       C_MEM_TYPE => 1,
       C_NEGATIVE_COSINE => 0,
       C_NEGATIVE_SINE => 0,
-      C_NOISE_SHAPING => 0,
-      C_OUTPUTS_REQUIRED => 2,
+      C_NOISE_SHAPING => 2,
+      C_OUTPUTS_REQUIRED => 0,
       C_OUTPUT_FORM => 0,
       C_OUTPUT_WIDTH => 16,
-      C_PHASE_ANGLE_WIDTH => 16,
+      C_PHASE_ANGLE_WIDTH => 11,
       C_PHASE_INCREMENT => 3,
       C_PHASE_INCREMENT_VALUE => "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
       C_RESYNC => 0,
@@ -206,7 +206,7 @@ BEGIN
       C_S_CONFIG_SYNC_MODE => 0,
       C_S_CONFIG_TDATA_WIDTH => 1,
       C_HAS_M_DATA => 1,
-      C_M_DATA_TDATA_WIDTH => 32,
+      C_M_DATA_TDATA_WIDTH => 16,
       C_M_DATA_HAS_TUSER => 0,
       C_M_DATA_TUSER_WIDTH => 1,
       C_HAS_M_PHASE => 0,

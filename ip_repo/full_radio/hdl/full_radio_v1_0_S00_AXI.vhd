@@ -16,35 +16,9 @@ entity full_radio_v1_0_S00_AXI is
 	);
 	port (
 		-- Users to add ports here
-        m_axis_tdata : inout std_logic_vector(31 downto 0);
-        m_axis_tvalid : out std_logic;
-        dds_tuner_m_tvalid: out std_logic;
-        dds_tuner_m_axis_data_tdata_output: inout std_logic_vector(31 downto 0);
+        m_axis_tdata: out std_logic_vector(31 downto 0);
+        m_axis_tvalid: out std_logic;
         
-        real_fir1_s_tready: out std_logic;
-        real_fir1_m_tvalid: inout std_logic;
-        real_fir1_m_axis_data_output_40b: inout std_logic_vector(39 downto 0);
-        real_fir1_m_axis_data_output_16b: inout std_logic_vector(15 downto 0);
-        
-        real_fir2_m_axis_data_output_16b: inout std_logic_vector(15 downto 0); -- 16 bitsdata output from Filter 2
-        real_fir2_m_axis_data_output_40b:  inout std_logic_vector(39 downto 0); -- 40 bitsdata output from Filter 2
-        real_fir2_m_tvalid: out std_logic;
-        real_fir2_s_tready: out std_logic;
-        
-        imag_fir1_m_axis_data_output_16b: inout std_logic_vector(15 downto 0); -- 16 bitsdata output from Filter 1
-        imag_fir1_m_axis_data_output_40b: inout  std_logic_vector(39 downto 0); -- 40 bitsdata output from Filter 1
-        imag_fir1_m_tvalid: inout std_logic;
-        imag_fir1_s_tready: out std_logic;
-    
-        imag_fir2_m_axis_data_output_16b:  inout std_logic_vector(15 downto 0); -- 16 bitsdata output from Filter 2
-        imag_fir2_m_axis_data_output_40b:  inout std_logic_vector(39 downto 0); -- 40 bitsdata output from Filter 2
-        imag_fir2_m_tvalid: out std_logic;
-        imag_fir2_s_tready: out std_logic;
-        
-        output_i: inout std_logic_vector(31 downto 0); -- output of real part is input of fir1,
-        output_q: inout std_logic_vector(31 downto 0); -- output imaginary part of the multiplication
-
-        m_axis_data_output: out std_logic_vector(31 downto 0);
 
 		-- User ports ends
 		-- Do not modify the ports beyond this line
@@ -113,7 +87,40 @@ entity full_radio_v1_0_S00_AXI is
 end full_radio_v1_0_S00_AXI;
 
 architecture arch_imp of full_radio_v1_0_S00_AXI is
+        signal dds_m_axis_tdata :  std_logic_vector(15 downto 0);
+        signal dds_m_axis_tvalid : std_logic;
+        signal dds_tuner_m_tvalid: std_logic;
+        signal dds_tuner_m_axis_data_tdata_output:  std_logic_vector(31 downto 0);
+        
+        signal real_fir1_s_tready:  std_logic;
+        signal real_fir1_m_tvalid:  std_logic;
+        signal real_fir1_m_axis_data_output_40b:  std_logic_vector(39 downto 0);
+        signal real_fir1_m_axis_data_output_16b:  std_logic_vector(15 downto 0);
+        
+        signal real_fir2_m_axis_data_output_16b:  std_logic_vector(15 downto 0); -- 16 bitsdata output from Filter 2
+        signal real_fir2_m_axis_data_output_40b:   std_logic_vector(39 downto 0); -- 40 bitsdata output from Filter 2
+        signal real_fir2_m_tvalid:  std_logic;
+        signal real_fir2_s_tready:  std_logic;
+        
+        signal imag_fir1_m_axis_data_output_16b:  std_logic_vector(15 downto 0); -- 16 bitsdata output from Filter 1
+        signal imag_fir1_m_axis_data_output_40b:   std_logic_vector(39 downto 0); -- 40 bitsdata output from Filter 1
+        signal imag_fir1_m_tvalid:  std_logic;
+        signal imag_fir1_s_tready:  std_logic;
+    
+        signal imag_fir2_m_axis_data_output_16b:   std_logic_vector(15 downto 0); -- 16 bitsdata output from Filter 2
+        signal imag_fir2_m_axis_data_output_40b:   std_logic_vector(39 downto 0); -- 40 bitsdata output from Filter 2
+        signal imag_fir2_m_tvalid:  std_logic;
+        signal imag_fir2_s_tready:  std_logic;
+        
+        signal output_i:  std_logic_vector(31 downto 0); -- output of real part is input of fir1,
+        signal output_q:  std_logic_vector(31 downto 0); -- output imaginary part of the multiplication
 
+        signal reset:  std_logic;
+        
+        signal counter : unsigned(C_S_AXI_DATA_WIDTH-1 downto 0) := (others => '0'); -- Change to UNSIGNED type
+        signal counting : std_logic := '0';
+        signal timer_done :  std_logic;
+        signal  start :  std_logic;
 	-- AXI4LITE signals
 	signal axi_awaddr	: std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
 	signal axi_awready	: std_logic;
@@ -433,7 +440,8 @@ begin
 	      when b"10" =>
 	        reg_data_out <= slv_reg2; --reset register
 	      when b"11" =>
-	        reg_data_out <= slv_reg3; --32bits timer register
+	       -- reg_data_out <= slv_reg3; --32bits timer register
+	        reg_data_out <=  std_logic_vector(counter);
 	      when others =>
 	        reg_data_out  <= (others => '0');
 	    end case;
@@ -469,26 +477,28 @@ begin
     imag_fir2_m_axis_data_output_16b  <= imag_fir2_m_axis_data_output_40b( 38 downto 23); -- 23 cooeff bits 
     
      -- complex multiplocation from 2 DDS
-   output_i <=  std_logic_vector(signed(m_axis_tdata) * signed(dds_tuner_m_axis_data_tdata_output(15 downto 0))); -- output of real part
-   output_q <=  std_logic_vector(signed(m_axis_tdata) * signed(dds_tuner_m_axis_data_tdata_output(31 downto 16))); -- output of imagine  part
+   output_i <=  std_logic_vector(signed(dds_m_axis_tdata) * signed(dds_tuner_m_axis_data_tdata_output(15 downto 0))); -- output of real part
+   output_q <=  std_logic_vector(signed(dds_m_axis_tdata) * signed(dds_tuner_m_axis_data_tdata_output(31 downto 16))); -- output of imagine  part
    
-   m_axis_data_output <= imag_fir2_m_axis_data_output_16b & real_fir2_m_axis_data_output_16b; -- output of filter 2 going to the dacif 32bit. imagine on the left and real on the right
+   m_axis_tdata <= imag_fir2_m_axis_data_output_16b & real_fir2_m_axis_data_output_16b; -- output of filter 2 going to the dacif 32bit. imagine on the left and real on the right
+   m_axis_tvalid <= '1';
 
+   reset <= not slv_reg2(0);
    
     fake_dds : dds_compiler_0
       PORT MAP (
         aclk => s_axi_aclk,
-        aresetn => '1',
+        aresetn => reset,
         s_axis_phase_tvalid => '1',
         s_axis_phase_tdata => slv_reg0,
-        m_axis_data_tvalid => m_axis_tvalid,
-        m_axis_data_tdata => m_axis_tdata
+        m_axis_data_tvalid => dds_m_axis_tvalid,
+        m_axis_data_tdata => dds_m_axis_tdata
       );
 
    tuner_dds : dds_tuner
       PORT MAP (
         aclk => s_axi_aclk,
-        aresetn => '1',
+        aresetn => reset,
         s_axis_phase_tvalid => '1',
         s_axis_phase_tdata => slv_reg1,
         m_axis_data_tvalid => dds_tuner_m_tvalid,
@@ -534,6 +544,21 @@ begin
         m_axis_data_tvalid => imag_fir2_m_tvalid,
         m_axis_data_tdata => imag_fir2_m_axis_data_output_40b
       );
+      
+      
+   process(s_axi_aclk, reset)
+    begin
+        if reset = '1' then
+            counter <= (others => '0');          
+        elsif rising_edge(s_axi_aclk) then
+           if counter = C_S_AXI_DATA_WIDTH-1 then
+                 counter <= (others => '0');
+            else
+                 counter <= counter + 1;
+            end if;           
+        end if;
+    end process;
+--     slv_reg3 <= std_logic_vector(counter); -- Convert UNSIGNED to STD_LOGIC_VECTOR
 	-- User logic ends
-
+   
 end arch_imp;

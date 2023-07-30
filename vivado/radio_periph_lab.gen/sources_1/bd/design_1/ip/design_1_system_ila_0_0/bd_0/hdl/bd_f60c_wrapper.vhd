@@ -45,25 +45,25 @@ architecture STRUCTURE of bd_f60c_wrapper is
     SLOT_0_AXIS_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     SLOT_0_AXIS_tlast : in STD_LOGIC;
     SLOT_0_AXIS_tvalid : in STD_LOGIC;
-    SLOT_1_AXI_awaddr : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    SLOT_1_AXI_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    SLOT_1_AXI_awvalid : in STD_LOGIC;
-    SLOT_1_AXI_awready : in STD_LOGIC;
-    SLOT_1_AXI_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    SLOT_1_AXI_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    SLOT_1_AXI_wvalid : in STD_LOGIC;
-    SLOT_1_AXI_wready : in STD_LOGIC;
-    SLOT_1_AXI_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    SLOT_1_AXI_bvalid : in STD_LOGIC;
-    SLOT_1_AXI_bready : in STD_LOGIC;
     SLOT_1_AXI_araddr : in STD_LOGIC_VECTOR ( 3 downto 0 );
     SLOT_1_AXI_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    SLOT_1_AXI_arvalid : in STD_LOGIC;
     SLOT_1_AXI_arready : in STD_LOGIC;
+    SLOT_1_AXI_arvalid : in STD_LOGIC;
+    SLOT_1_AXI_awaddr : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    SLOT_1_AXI_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    SLOT_1_AXI_awready : in STD_LOGIC;
+    SLOT_1_AXI_awvalid : in STD_LOGIC;
+    SLOT_1_AXI_bready : in STD_LOGIC;
+    SLOT_1_AXI_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    SLOT_1_AXI_bvalid : in STD_LOGIC;
     SLOT_1_AXI_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    SLOT_1_AXI_rready : in STD_LOGIC;
     SLOT_1_AXI_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     SLOT_1_AXI_rvalid : in STD_LOGIC;
-    SLOT_1_AXI_rready : in STD_LOGIC
+    SLOT_1_AXI_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    SLOT_1_AXI_wready : in STD_LOGIC;
+    SLOT_1_AXI_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    SLOT_1_AXI_wvalid : in STD_LOGIC
   );
   end component bd_f60c;
 begin

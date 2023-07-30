@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "design_1_full_radio_0_0_synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 3
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg400-1
@@ -90,6 +91,8 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_ip -quiet D:/Git/radio_periph_lab/vivado/radio_periph_lab.srcs/sources_1/bd/design_1/ip/design_1_full_radio_0_0/design_1_full_radio_0_0.xci
+set_property used_in_implementation false [get_files -all d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/fir2_3125/constraints/fir_compiler_v7_2.xdc]
+set_property used_in_implementation false [get_files -all d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/fir1_125/constraints/fir_compiler_v7_2.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

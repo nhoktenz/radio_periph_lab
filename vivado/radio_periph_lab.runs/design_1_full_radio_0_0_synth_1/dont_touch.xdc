@@ -4,11 +4,41 @@
 # IP: D:/Git/radio_periph_lab/vivado/radio_periph_lab.srcs/sources_1/bd/design_1/ip/design_1_full_radio_0_0/design_1_full_radio_0_0.xci
 # IP: The module: 'design_1_full_radio_0_0' is the root of the design. Do not add the DONT_TOUCH constraint.
 
+# IP: d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/fir2_3125/fir2_3125.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fir2_3125 || ORIG_REF_NAME==fir2_3125} -quiet] -quiet
+
+# IP: d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/fir1_125/fir1_125.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fir1_125 || ORIG_REF_NAME==fir1_125} -quiet] -quiet
+
+# IP: d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/dds_tuner/dds_tuner.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dds_tuner || ORIG_REF_NAME==dds_tuner} -quiet] -quiet
+
 # IP: d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/dds_compiler_0/dds_compiler_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dds_compiler_0 || ORIG_REF_NAME==dds_compiler_0} -quiet] -quiet
+
+# XDC: d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/fir2_3125/constraints/fir_compiler_v7_2.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==fir2_3125 || ORIG_REF_NAME==fir2_3125} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/fir1_125/constraints/fir_compiler_v7_2.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==fir1_125 || ORIG_REF_NAME==fir1_125} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
 
 # IP: D:/Git/radio_periph_lab/vivado/radio_periph_lab.srcs/sources_1/bd/design_1/ip/design_1_full_radio_0_0/design_1_full_radio_0_0.xci
 # IP: The module: 'design_1_full_radio_0_0' is the root of the design. Do not add the DONT_TOUCH constraint.
 
+# IP: d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/fir2_3125/fir2_3125.xci
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fir2_3125 || ORIG_REF_NAME==fir2_3125} -quiet] -quiet
+
+# IP: d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/fir1_125/fir1_125.xci
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fir1_125 || ORIG_REF_NAME==fir1_125} -quiet] -quiet
+
+# IP: d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/dds_tuner/dds_tuner.xci
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dds_tuner || ORIG_REF_NAME==dds_tuner} -quiet] -quiet
+
 # IP: d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/dds_compiler_0/dds_compiler_0.xci
 #dup# set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dds_compiler_0 || ORIG_REF_NAME==dds_compiler_0} -quiet] -quiet
+
+# XDC: d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/fir2_3125/constraints/fir_compiler_v7_2.xdc
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==fir2_3125 || ORIG_REF_NAME==fir2_3125} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/fir1_125/constraints/fir_compiler_v7_2.xdc
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==fir1_125 || ORIG_REF_NAME==fir1_125} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
