@@ -55,21 +55,24 @@ void print_benchmark(volatile unsigned int *periph_base)
     unsigned int start_time;
     unsigned int stop_time;
     start_time = *(periph_base+RADIO_TUNER_TIMER_REG_OFFSET);
+	printf("Start time in clocks = %u\n",start_time);
     for (int i=0;i<2048;i++)
         stop_time = *(periph_base+RADIO_TUNER_TIMER_REG_OFFSET);
+	printf("Stop time in clocks = %u\n",stop_time);
     printf("Elapsed time in clocks = %u\n",stop_time-start_time);
     float throughput=0; 
     // please insert your code here for calculate the actual throughput in Mbytes/second
     // how much data was transferred? How long did it take?
 	 //unsigned int bytes_transferred = 0; // change obviously
 	 //float time_spent = 1; // change obviously
-	 unsigned int bytes_transferred = 2048 * sizeof(unsigned int); // Assuming each read is of size 'unsigned int'
+	 float bytes_transferred = 2048 * 4; 
 	 float time_spent = (float)(stop_time - start_time) / 125e6; // Convert clock cycles to seconds
+	  printf("Time spent in clocks = %f\n",time_spent);
 	 // Throughput = Data transferred (in bytes) / Time taken (in seconds)
 	 //throughput = ((float)bytes_transferred / (1024.0 * 1024.0)) / time_spent;
 	 float throughput_byte = (float)bytes_transferred / (time_spent);
 	 throughput = throughput_byte/(1024*1024); // bytes to MBytes
-
+	printf("throughput_byte = %f\n",throughput_byte);
    
     printf("You transferred %f bytes of data in %f seconds\n",bytes_transferred,time_spent);
     printf("Measured Transfer throughput = %f Mbytes/sec\n",throughput);
