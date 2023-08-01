@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="design_1_rst_ps7_0_125M_0_synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1690682837">
+<GenRun Id="design_1_rst_ps7_0_125M_0_synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1690852868">
   <File Type="PA-TCL" Name="design_1_rst_ps7_0_125M_0.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="design_1_rst_ps7_0_125M_0_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="design_1_rst_ps7_0_125M_0_reports.tcl"/>
@@ -44,7 +44,9 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

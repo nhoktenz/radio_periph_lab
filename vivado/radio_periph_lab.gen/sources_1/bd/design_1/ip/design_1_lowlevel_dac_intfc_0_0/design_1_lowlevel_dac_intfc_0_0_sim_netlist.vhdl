@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
--- Date        : Sat Jul 29 20:55:36 2023
+-- Date        : Mon Jul 31 21:28:53 2023
 -- Host        : Thuong-Nguyen-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top design_1_lowlevel_dac_intfc_0_0 -prefix
---               design_1_lowlevel_dac_intfc_0_0_ design_1_lowlevel_dac_intfc_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_lowlevel_dac_intfc_0_0/design_1_lowlevel_dac_intfc_0_0_sim_netlist.vhdl
 -- Design      : design_1_lowlevel_dac_intfc_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -21,6 +21,8 @@ entity design_1_lowlevel_dac_intfc_0_0_clkdivider is
     SR : in STD_LOGIC_VECTOR ( 0 to 0 );
     clk125 : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_lowlevel_dac_intfc_0_0_clkdivider : entity is "clkdivider";
 end design_1_lowlevel_dac_intfc_0_0_clkdivider;
 
 architecture STRUCTURE of design_1_lowlevel_dac_intfc_0_0_clkdivider is
@@ -359,6 +361,8 @@ entity design_1_lowlevel_dac_intfc_0_0_lowlevel_dac_intfc is
     resetn : in STD_LOGIC;
     data_word : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_lowlevel_dac_intfc_0_0_lowlevel_dac_intfc : entity is "lowlevel_dac_intfc";
 end design_1_lowlevel_dac_intfc_0_0_lowlevel_dac_intfc;
 
 architecture STRUCTURE of design_1_lowlevel_dac_intfc_0_0_lowlevel_dac_intfc is

@@ -2,8 +2,8 @@
 # Vivado v2022.1 (64-bit)
 # SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
 # IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
-# Start of session at: Sat Jul 29 22:07:27 2023
-# Process ID: 8080
+# Start of session at: Mon Jul 31 21:21:21 2023
+# Process ID: 273308
 # Current directory: D:/Git/radio_periph_lab/vivado/radio_periph_lab.runs/design_1_rst_ps7_0_125M_0_synth_1
 # Command line: vivado.exe -log design_1_rst_ps7_0_125M_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_rst_ps7_0_125M_0.tcl
 # Log file: D:/Git/radio_periph_lab/vivado/radio_periph_lab.runs/design_1_rst_ps7_0_125M_0_synth_1/design_1_rst_ps7_0_125M_0.vds
