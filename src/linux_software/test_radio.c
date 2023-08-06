@@ -55,10 +55,8 @@ void print_benchmark(volatile unsigned int *periph_base)
     unsigned int start_time;
     unsigned int stop_time;
     start_time = *(periph_base+RADIO_TUNER_TIMER_REG_OFFSET);
-	printf("Start time in clocks = %u\n",start_time);
     for (int i=0;i<2048;i++)
         stop_time = *(periph_base+RADIO_TUNER_TIMER_REG_OFFSET);
-	printf("Stop time in clocks = %u\n",stop_time);
     printf("Elapsed time in clocks = %u\n",stop_time-start_time);
     float throughput=0; 
     // please insert your code here for calculate the actual throughput in Mbytes/second

@@ -1,0 +1,22 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Sun Aug  6 02:50:05 2023
+# Process ID: 62128
+# Current directory: D:/Git/radio_periph_lab/vivado/radio_periph_lab.runs/design_1_auto_cc_1_synth_1
+# Command line: vivado.exe -log design_1_auto_cc_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_auto_cc_1.tcl
+# Log file: D:/Git/radio_periph_lab/vivado/radio_periph_lab.runs/design_1_auto_cc_1_synth_1/design_1_auto_cc_1.vds
+# Journal file: D:/Git/radio_periph_lab/vivado/radio_periph_lab.runs/design_1_auto_cc_1_synth_1\vivado.jou
+# Running On: Thuong-Nguyen-PC, OS: Windows, CPU Frequency: 2592 MHz, CPU Physical cores: 6, Host memory: 17073 MB
+#-----------------------------------------------------------
+source design_1_auto_cc_1.tcl -notrace
+create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:13 . Memory (MB): peak = 1626.469 ; gain = 0.000
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-3685] Ignored loading user repository 'd:/Git/radio_periph_lab/ip_repo/simple_fifo_1.0'. The path is contained within another repository.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Git/radio_periph_lab/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx2022/Vivado/2022.1/data/ip'.
+WARNING: [Vivado 12-818] No files matched 'd:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_auto_cc_1/design_1_auto_cc_1_clocks.xdc'
+ERROR: [Common 17-55] 'set_property' expects at least one object.
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+INFO: [Common 17-206] Exiting Vivado at Sun Aug  6 02:52:21 2023...
