@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "design_1_axis_broadcaster_0_0_synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 3
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 OPTRACE "Creating in-memory project" START { }
@@ -84,10 +85,7 @@ set_property parent.project_path D:/Git/radio_periph_lab/vivado/radio_periph_lab
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property ip_repo_paths {
-  d:/Git/radio_periph_lab/ip_repo/simple_fifo_1.0
-  d:/Git/radio_periph_lab/ip_repo
-} [current_project]
+set_property ip_repo_paths d:/Git/radio_periph_lab/ip_repo [current_project]
 update_ip_catalog
 set_property ip_output_repo d:/Git/radio_periph_lab/vivado/radio_periph_lab.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]

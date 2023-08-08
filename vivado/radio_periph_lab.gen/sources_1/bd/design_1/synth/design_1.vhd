@@ -1,7 +1,7 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
---Date        : Sun Aug  6 03:10:18 2023
+--Date        : Mon Aug  7 17:22:05 2023
 --Host        : Thuong-Nguyen-PC running 64-bit major release  (build 9200)
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -1901,9 +1901,10 @@ architecture STRUCTURE of design_1 is
   component design_1_system_ila_0_0 is
   port (
     clk : in STD_LOGIC;
-    SLOT_0_AXIS_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    SLOT_0_AXIS_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     SLOT_0_AXIS_tlast : in STD_LOGIC;
     SLOT_0_AXIS_tvalid : in STD_LOGIC;
+    SLOT_0_AXIS_tready : in STD_LOGIC;
     SLOT_1_AXI_awaddr : in STD_LOGIC_VECTOR ( 3 downto 0 );
     SLOT_1_AXI_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
     SLOT_1_AXI_awvalid : in STD_LOGIC;
@@ -1923,8 +1924,15 @@ architecture STRUCTURE of design_1 is
     SLOT_1_AXI_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     SLOT_1_AXI_rvalid : in STD_LOGIC;
     SLOT_1_AXI_rready : in STD_LOGIC;
-    resetn : in STD_LOGIC;
-    SLOT_0_AXIS_tready : in STD_LOGIC
+    SLOT_2_AXIS_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    SLOT_2_AXIS_tlast : in STD_LOGIC;
+    SLOT_2_AXIS_tvalid : in STD_LOGIC;
+    SLOT_2_AXIS_tready : in STD_LOGIC;
+    SLOT_3_AXIS_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    SLOT_3_AXIS_tlast : in STD_LOGIC;
+    SLOT_3_AXIS_tvalid : in STD_LOGIC;
+    SLOT_3_AXIS_tready : in STD_LOGIC;
+    resetn : in STD_LOGIC
   );
   end component design_1_system_ila_0_0;
   component design_1_xpm_cdc_gen_0_0 is
@@ -1943,37 +1951,9 @@ architecture STRUCTURE of design_1 is
     s_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     m_axis_tvalid : out STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axis_tready : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 )
+    m_axis_tdata : out STD_LOGIC_VECTOR ( 63 downto 0 )
   );
   end component design_1_axis_broadcaster_0_0;
-  component design_1_simple_fifo_0_0 is
-  port (
-    s_axis_tvalid : in STD_LOGIC;
-    s_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axis_tready : out STD_LOGIC;
-    s00_axi_aclk : in STD_LOGIC;
-    s00_axi_aresetn : in STD_LOGIC;
-    s00_axi_awaddr : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    s00_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    s00_axi_awvalid : in STD_LOGIC;
-    s00_axi_awready : out STD_LOGIC;
-    s00_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s00_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    s00_axi_wvalid : in STD_LOGIC;
-    s00_axi_wready : out STD_LOGIC;
-    s00_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    s00_axi_bvalid : out STD_LOGIC;
-    s00_axi_bready : in STD_LOGIC;
-    s00_axi_araddr : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    s00_axi_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    s00_axi_arvalid : in STD_LOGIC;
-    s00_axi_arready : out STD_LOGIC;
-    s00_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    s00_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    s00_axi_rvalid : out STD_LOGIC;
-    s00_axi_rready : in STD_LOGIC
-  );
-  end component design_1_simple_fifo_0_0;
   component design_1_full_radio_0_0 is
   port (
     m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -2016,6 +1996,34 @@ architecture STRUCTURE of design_1 is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component design_1_rst_clk125_125M_0;
+  component design_1_simple_fifo_0_1 is
+  port (
+    s_axis_tvalid : in STD_LOGIC;
+    s_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s_axis_tready : out STD_LOGIC;
+    s00_axi_aclk : in STD_LOGIC;
+    s00_axi_aresetn : in STD_LOGIC;
+    s00_axi_awaddr : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    s00_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    s00_axi_awvalid : in STD_LOGIC;
+    s00_axi_awready : out STD_LOGIC;
+    s00_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    s00_axi_wvalid : in STD_LOGIC;
+    s00_axi_wready : out STD_LOGIC;
+    s00_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    s00_axi_bvalid : out STD_LOGIC;
+    s00_axi_bready : in STD_LOGIC;
+    s00_axi_araddr : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    s00_axi_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    s00_axi_arvalid : in STD_LOGIC;
+    s00_axi_arready : out STD_LOGIC;
+    s00_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    s00_axi_rvalid : out STD_LOGIC;
+    s00_axi_rready : in STD_LOGIC
+  );
+  end component design_1_simple_fifo_0_1;
   signal axi_iic_0_IIC_SCL_I : STD_LOGIC;
   signal axi_iic_0_IIC_SCL_O : STD_LOGIC;
   signal axi_iic_0_IIC_SCL_T : STD_LOGIC;
@@ -2023,13 +2031,19 @@ architecture STRUCTURE of design_1 is
   signal axi_iic_0_IIC_SDA_O : STD_LOGIC;
   signal axi_iic_0_IIC_SDA_T : STD_LOGIC;
   signal axi_iic_0_gpo : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal axis_broadcaster_0_M00_AXIS_TDATA : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal axis_broadcaster_0_M00_AXIS_TREADY : STD_LOGIC;
-  signal axis_broadcaster_0_M00_AXIS_TVALID : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal axis_broadcaster_0_M01_AXIS_TDATA : STD_LOGIC_VECTOR ( 31 downto 16 );
+  signal axis_broadcaster_0_M00_AXIS_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
   attribute CONN_BUS_INFO : string;
-  attribute CONN_BUS_INFO of axis_broadcaster_0_M01_AXIS_TDATA : signal is "axis_broadcaster_0_M01_AXIS xilinx.com:interface:axis:1.0 None TDATA";
+  attribute CONN_BUS_INFO of axis_broadcaster_0_M00_AXIS_TDATA : signal is "axis_broadcaster_0_M01_AXIS xilinx.com:interface:axis:1.0 None TDATA";
   attribute DONT_TOUCH : boolean;
+  attribute DONT_TOUCH of axis_broadcaster_0_M00_AXIS_TDATA : signal is std.standard.true;
+  signal axis_broadcaster_0_M00_AXIS_TREADY : STD_LOGIC;
+  attribute CONN_BUS_INFO of axis_broadcaster_0_M00_AXIS_TREADY : signal is "axis_broadcaster_0_M00_AXIS xilinx.com:interface:axis:1.0 None TREADY";
+  attribute DONT_TOUCH of axis_broadcaster_0_M00_AXIS_TREADY : signal is std.standard.true;
+  signal axis_broadcaster_0_M00_AXIS_TVALID : STD_LOGIC_VECTOR ( 0 to 0 );
+  attribute CONN_BUS_INFO of axis_broadcaster_0_M00_AXIS_TVALID : signal is "axis_broadcaster_0_M01_AXIS xilinx.com:interface:axis:1.0 None TVALID";
+  attribute DONT_TOUCH of axis_broadcaster_0_M00_AXIS_TVALID : signal is std.standard.true;
+  signal axis_broadcaster_0_M01_AXIS_TDATA : STD_LOGIC_VECTOR ( 63 downto 32 );
+  attribute CONN_BUS_INFO of axis_broadcaster_0_M01_AXIS_TDATA : signal is "axis_broadcaster_0_M01_AXIS xilinx.com:interface:axis:1.0 None TDATA";
   attribute DONT_TOUCH of axis_broadcaster_0_M01_AXIS_TDATA : signal is std.standard.true;
   signal axis_broadcaster_0_M01_AXIS_TREADY : STD_LOGIC;
   attribute CONN_BUS_INFO of axis_broadcaster_0_M01_AXIS_TREADY : signal is "axis_broadcaster_0_M01_AXIS xilinx.com:interface:axis:1.0 None TREADY";
@@ -2038,8 +2052,14 @@ architecture STRUCTURE of design_1 is
   attribute CONN_BUS_INFO of axis_broadcaster_0_M01_AXIS_TVALID : signal is "axis_broadcaster_0_M01_AXIS xilinx.com:interface:axis:1.0 None TVALID";
   attribute DONT_TOUCH of axis_broadcaster_0_M01_AXIS_TVALID : signal is std.standard.true;
   signal full_radio_0_m_axis_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  attribute CONN_BUS_INFO of full_radio_0_m_axis_TDATA : signal is "full_radio_0_m_axis xilinx.com:interface:axis:1.0 None TDATA";
+  attribute DONT_TOUCH of full_radio_0_m_axis_TDATA : signal is std.standard.true;
   signal full_radio_0_m_axis_TREADY : STD_LOGIC;
+  attribute CONN_BUS_INFO of full_radio_0_m_axis_TREADY : signal is "full_radio_0_m_axis xilinx.com:interface:axis:1.0 None TREADY";
+  attribute DONT_TOUCH of full_radio_0_m_axis_TREADY : signal is std.standard.true;
   signal full_radio_0_m_axis_TVALID : STD_LOGIC;
+  attribute CONN_BUS_INFO of full_radio_0_m_axis_TVALID : signal is "full_radio_0_m_axis xilinx.com:interface:axis:1.0 None TVALID";
+  attribute DONT_TOUCH of full_radio_0_m_axis_TVALID : signal is std.standard.true;
   signal lowlevel_dac_intfc_0_bclk : STD_LOGIC;
   signal lowlevel_dac_intfc_0_lrck : STD_LOGIC;
   signal lowlevel_dac_intfc_0_mclk : STD_LOGIC;
@@ -2292,8 +2312,8 @@ axis_broadcaster_0: component design_1_axis_broadcaster_0_0
      port map (
       aclk => s00_axi_aclk_0_1,
       aresetn => xpm_cdc_gen_0_dest_rst_out,
-      m_axis_tdata(31 downto 16) => axis_broadcaster_0_M01_AXIS_TDATA(31 downto 16),
-      m_axis_tdata(15 downto 0) => axis_broadcaster_0_M00_AXIS_TDATA(15 downto 0),
+      m_axis_tdata(63 downto 32) => axis_broadcaster_0_M01_AXIS_TDATA(63 downto 32),
+      m_axis_tdata(31 downto 0) => axis_broadcaster_0_M00_AXIS_TDATA(31 downto 0),
       m_axis_tready(1) => axis_broadcaster_0_M01_AXIS_TREADY,
       m_axis_tready(0) => axis_broadcaster_0_M00_AXIS_TREADY,
       m_axis_tvalid(1) => axis_broadcaster_0_M01_AXIS_TVALID(1),
@@ -2333,8 +2353,7 @@ lowlevel_dac_intfc_0: component design_1_lowlevel_dac_intfc_0_0
      port map (
       bclk => lowlevel_dac_intfc_0_bclk,
       clk125 => s00_axi_aclk_0_1,
-      data_word(31 downto 16) => B"0000000000000000",
-      data_word(15 downto 0) => axis_broadcaster_0_M01_AXIS_TDATA(31 downto 16),
+      data_word(31 downto 0) => axis_broadcaster_0_M01_AXIS_TDATA(63 downto 32),
       latched_data => axis_broadcaster_0_M01_AXIS_TREADY,
       lrck => lowlevel_dac_intfc_0_lrck,
       mclk => lowlevel_dac_intfc_0_mclk,
@@ -2542,11 +2561,11 @@ rst_ps7_0_125M: component design_1_rst_ps7_0_125M_0
       peripheral_reset(0) => rst_ps7_0_125M_peripheral_reset(0),
       slowest_sync_clk => processing_system7_0_FCLK_CLK0
     );
-simple_fifo_0: component design_1_simple_fifo_0_0
+simple_fifo_0: component design_1_simple_fifo_0_1
      port map (
       s00_axi_aclk => s00_axi_aclk_0_1,
       s00_axi_araddr(3 downto 0) => ps7_0_axi_periph_M02_AXI_ARADDR(3 downto 0),
-      s00_axi_aresetn => rst_clk125_125M_peripheral_aresetn(0),
+      s00_axi_aresetn => xpm_cdc_gen_0_dest_rst_out,
       s00_axi_arprot(2 downto 0) => ps7_0_axi_periph_M02_AXI_ARPROT(2 downto 0),
       s00_axi_arready => ps7_0_axi_periph_M02_AXI_ARREADY,
       s00_axi_arvalid => ps7_0_axi_periph_M02_AXI_ARVALID,
@@ -2565,14 +2584,13 @@ simple_fifo_0: component design_1_simple_fifo_0_0
       s00_axi_wready => ps7_0_axi_periph_M02_AXI_WREADY,
       s00_axi_wstrb(3 downto 0) => ps7_0_axi_periph_M02_AXI_WSTRB(3 downto 0),
       s00_axi_wvalid => ps7_0_axi_periph_M02_AXI_WVALID,
-      s_axis_tdata(31 downto 16) => B"0000000000000000",
-      s_axis_tdata(15 downto 0) => axis_broadcaster_0_M00_AXIS_TDATA(15 downto 0),
+      s_axis_tdata(31 downto 0) => axis_broadcaster_0_M00_AXIS_TDATA(31 downto 0),
       s_axis_tready => axis_broadcaster_0_M00_AXIS_TREADY,
       s_axis_tvalid => axis_broadcaster_0_M00_AXIS_TVALID(0)
     );
 system_ila_0: component design_1_system_ila_0_0
      port map (
-      SLOT_0_AXIS_tdata(15 downto 0) => axis_broadcaster_0_M01_AXIS_TDATA(31 downto 16),
+      SLOT_0_AXIS_tdata(31 downto 0) => axis_broadcaster_0_M01_AXIS_TDATA(63 downto 32),
       SLOT_0_AXIS_tlast => '0',
       SLOT_0_AXIS_tready => axis_broadcaster_0_M01_AXIS_TREADY,
       SLOT_0_AXIS_tvalid => axis_broadcaster_0_M01_AXIS_TVALID(1),
@@ -2595,6 +2613,14 @@ system_ila_0: component design_1_system_ila_0_0
       SLOT_1_AXI_wready => ps7_0_axi_periph_M00_AXI_WREADY,
       SLOT_1_AXI_wstrb(3 downto 0) => ps7_0_axi_periph_M00_AXI_WSTRB(3 downto 0),
       SLOT_1_AXI_wvalid => ps7_0_axi_periph_M00_AXI_WVALID,
+      SLOT_2_AXIS_tdata(31 downto 0) => full_radio_0_m_axis_TDATA(31 downto 0),
+      SLOT_2_AXIS_tlast => '0',
+      SLOT_2_AXIS_tready => full_radio_0_m_axis_TREADY,
+      SLOT_2_AXIS_tvalid => full_radio_0_m_axis_TVALID,
+      SLOT_3_AXIS_tdata(31 downto 0) => axis_broadcaster_0_M00_AXIS_TDATA(31 downto 0),
+      SLOT_3_AXIS_tlast => '0',
+      SLOT_3_AXIS_tready => axis_broadcaster_0_M00_AXIS_TREADY,
+      SLOT_3_AXIS_tvalid => axis_broadcaster_0_M00_AXIS_TVALID(0),
       clk => s00_axi_aclk_0_1,
       resetn => xpm_cdc_gen_0_dest_rst_out
     );

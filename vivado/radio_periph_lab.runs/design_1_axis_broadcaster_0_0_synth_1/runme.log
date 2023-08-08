@@ -10,9 +10,8 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source design_1_axis_broadcaster_0_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:13 . Memory (MB): peak = 1627.117 ; gain = 0.000
+create_project: Time (s): cpu = 00:00:02 ; elapsed = 00:00:12 . Memory (MB): peak = 1638.398 ; gain = 0.000
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-WARNING: [IP_Flow 19-3685] Ignored loading user repository 'd:/Git/radio_periph_lab/ip_repo/simple_fifo_1.0'. The path is contained within another repository.
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Git/radio_periph_lab/ip_repo'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx2022/Vivado/2022.1/data/ip'.
 Command: synth_design -top design_1_axis_broadcaster_0_0 -part xc7z020clg400-1 -incremental_mode off -mode out_of_context
@@ -22,10 +21,10 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 49504
+INFO: [Synth 8-7075] Helper process launched with PID 61060
 WARNING: [Synth 8-9501] generate block is allowed only inside loop and conditional generate in SystemVerilog mode [D:/Xilinx2022/Vivado/2022.1/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:4023]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:17 . Memory (MB): peak = 1627.117 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:12 . Memory (MB): peak = 1638.398 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_axis_broadcaster_0_0' [d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_axis_broadcaster_0_0/synth/design_1_axis_broadcaster_0_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'top_design_1_axis_broadcaster_0_0' [d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_axis_broadcaster_0_0/hdl/top_design_1_axis_broadcaster_0_0.v:60]
@@ -75,22 +74,6 @@ WARNING: [Synth 8-7129] Port tdata[35] in module tdata_design_1_axis_broadcaster
 WARNING: [Synth 8-7129] Port tdata[34] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port tdata[33] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port tdata[32] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tdata[31] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tdata[30] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tdata[29] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tdata[28] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tdata[27] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tdata[26] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tdata[25] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tdata[24] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tdata[23] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tdata[22] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tdata[21] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tdata[20] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tdata[19] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tdata[18] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tdata[17] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tdata[16] in module tdata_design_1_axis_broadcaster_0_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port TSTRB[3] in module axis_infrastructure_v1_1_0_util_axis2vector is either unconnected or has no load
 WARNING: [Synth 8-7129] Port TSTRB[2] in module axis_infrastructure_v1_1_0_util_axis2vector is either unconnected or has no load
 WARNING: [Synth 8-7129] Port TSTRB[1] in module axis_infrastructure_v1_1_0_util_axis2vector is either unconnected or has no load
@@ -104,18 +87,18 @@ WARNING: [Synth 8-7129] Port TID[0] in module axis_infrastructure_v1_1_0_util_ax
 WARNING: [Synth 8-7129] Port TDEST[0] in module axis_infrastructure_v1_1_0_util_axis2vector is either unconnected or has no load
 WARNING: [Synth 8-7129] Port TUSER[0] in module axis_infrastructure_v1_1_0_util_axis2vector is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:22 . Memory (MB): peak = 1652.816 ; gain = 25.699
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:22 . Memory (MB): peak = 1652.191 ; gain = 13.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:23 . Memory (MB): peak = 1652.816 ; gain = 25.699
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:23 . Memory (MB): peak = 1652.191 ; gain = 13.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:23 . Memory (MB): peak = 1652.816 ; gain = 25.699
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:23 . Memory (MB): peak = 1652.191 ; gain = 13.793
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1652.816 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 1652.191 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -126,31 +109,31 @@ Parsing XDC File [D:/Git/radio_periph_lab/vivado/radio_periph_lab.runs/design_1_
 Finished Parsing XDC File [D:/Git/radio_periph_lab/vivado/radio_periph_lab.runs/design_1_axis_broadcaster_0_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1690.605 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1689.496 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.617 . Memory (MB): peak = 1691.566 ; gain = 0.961
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:01 . Memory (MB): peak = 1692.043 ; gain = 2.547
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:52 . Memory (MB): peak = 1691.566 ; gain = 64.449
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:50 . Memory (MB): peak = 1692.043 ; gain = 53.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:52 . Memory (MB): peak = 1691.566 ; gain = 64.449
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:50 . Memory (MB): peak = 1692.043 ; gain = 53.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  D:/Git/radio_periph_lab/vivado/radio_periph_lab.runs/design_1_axis_broadcaster_0_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:52 . Memory (MB): peak = 1691.566 ; gain = 64.449
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:50 . Memory (MB): peak = 1692.043 ; gain = 53.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:53 . Memory (MB): peak = 1691.566 ; gain = 64.449
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:51 . Memory (MB): peak = 1692.043 ; gain = 53.645
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-223] decloning instance 'inst/broadcaster_core/MI_SLOT[0].util_vector2axis' (axis_infrastructure_v1_1_0_util_vector2axis) to 'inst/broadcaster_core/MI_SLOT[1].util_vector2axis'
 ---------------------------------------------------------------------------------
@@ -177,22 +160,6 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-7129] Port s_axis_tdata[31] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port s_axis_tdata[30] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port s_axis_tdata[29] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port s_axis_tdata[28] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port s_axis_tdata[27] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port s_axis_tdata[26] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port s_axis_tdata[25] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port s_axis_tdata[24] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port s_axis_tdata[23] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port s_axis_tdata[22] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port s_axis_tdata[21] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port s_axis_tdata[20] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port s_axis_tdata[19] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port s_axis_tdata[18] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port s_axis_tdata[17] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port s_axis_tdata[16] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port s_axis_tstrb[3] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port s_axis_tstrb[2] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port s_axis_tstrb[1] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
@@ -206,25 +173,25 @@ WARNING: [Synth 8-7129] Port s_axis_tid[0] in module top_design_1_axis_broadcast
 WARNING: [Synth 8-7129] Port s_axis_tdest[0] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port s_axis_tuser[0] in module top_design_1_axis_broadcaster_0_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:57 . Memory (MB): peak = 1691.566 ; gain = 64.449
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:55 . Memory (MB): peak = 1692.043 ; gain = 53.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:01:09 . Memory (MB): peak = 1691.566 ; gain = 64.449
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:01:03 . Memory (MB): peak = 1692.043 ; gain = 53.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:01:09 . Memory (MB): peak = 1691.566 ; gain = 64.449
+Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:01:04 . Memory (MB): peak = 1692.043 ; gain = 53.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:01:09 . Memory (MB): peak = 1691.566 ; gain = 64.449
+Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:01:04 . Memory (MB): peak = 1692.043 ; gain = 53.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -242,37 +209,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:01:17 . Memory (MB): peak = 1691.566 ; gain = 64.449
+Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:01:11 . Memory (MB): peak = 1692.043 ; gain = 53.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:01:17 . Memory (MB): peak = 1691.566 ; gain = 64.449
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:01:11 . Memory (MB): peak = 1692.043 ; gain = 53.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:01:17 . Memory (MB): peak = 1691.566 ; gain = 64.449
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:01:11 . Memory (MB): peak = 1692.043 ; gain = 53.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:01:17 . Memory (MB): peak = 1691.566 ; gain = 64.449
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:01:11 . Memory (MB): peak = 1692.043 ; gain = 53.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:01:17 . Memory (MB): peak = 1691.566 ; gain = 64.449
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:01:11 . Memory (MB): peak = 1692.043 ; gain = 53.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:01:17 . Memory (MB): peak = 1691.566 ; gain = 64.449
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:01:11 . Memory (MB): peak = 1692.043 ; gain = 53.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -294,27 +261,27 @@ Report Cell Usage:
 |4     |FDRE |     2|
 +------+-----+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:01:17 . Memory (MB): peak = 1691.566 ; gain = 64.449
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:01:11 . Memory (MB): peak = 1692.043 ; gain = 53.645
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 29 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:01:03 . Memory (MB): peak = 1691.566 ; gain = 25.699
-Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:01:17 . Memory (MB): peak = 1691.566 ; gain = 64.449
+Synthesis finished with 0 errors, 0 critical warnings and 13 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:55 . Memory (MB): peak = 1692.043 ; gain = 13.793
+Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:01:11 . Memory (MB): peak = 1692.043 ; gain = 53.645
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1702.133 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1703.773 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1715.844 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1715.414 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: 470bae4a
+Synth Design complete, checksum: 133e0ec
 INFO: [Common 17-83] Releasing license: Synthesis
-31 Infos, 93 Warnings, 0 Critical Warnings and 0 Errors encountered.
+31 Infos, 60 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:01:45 . Memory (MB): peak = 1715.844 ; gain = 88.727
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:01:31 . Memory (MB): peak = 1715.414 ; gain = 77.016
 INFO: [Common 17-1381] The checkpoint 'D:/Git/radio_periph_lab/vivado/radio_periph_lab.runs/design_1_axis_broadcaster_0_0_synth_1/design_1_axis_broadcaster_0_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_axis_broadcaster_0_0, cache-ID = 3a4249dd52854290
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_axis_broadcaster_0_0, cache-ID = 2d82af06d28976f9
 INFO: [Coretcl 2-1174] Renamed 2 cell refs.
 INFO: [Common 17-1381] The checkpoint 'D:/Git/radio_periph_lab/vivado/radio_periph_lab.runs/design_1_axis_broadcaster_0_0_synth_1/design_1_axis_broadcaster_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_axis_broadcaster_0_0_utilization_synth.rpt -pb design_1_axis_broadcaster_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Aug  6 02:54:11 2023...
+INFO: [Common 17-206] Exiting Vivado at Sun Aug  6 13:21:00 2023...

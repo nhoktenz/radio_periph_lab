@@ -122,7 +122,9 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param tcl.collectionResultDisplayLimit 0
   set_param chipscope.maxJobs 3
+  set_param xicom.use_bs_reader 1
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7z020clg400-1
   set_property design_mode GateLvl [current_fileset]
@@ -131,10 +133,7 @@ OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
   set_property webtalk.parent_dir D:/Git/radio_periph_lab/vivado/radio_periph_lab.cache/wt [current_project]
   set_property parent.project_path D:/Git/radio_periph_lab/vivado/radio_periph_lab.xpr [current_project]
-  set_property ip_repo_paths {
-  D:/Git/radio_periph_lab/ip_repo/simple_fifo_1.0
-  D:/Git/radio_periph_lab/ip_repo
-} [current_project]
+  set_property ip_repo_paths D:/Git/radio_periph_lab/ip_repo [current_project]
   update_ip_catalog
   set_property ip_output_repo D:/Git/radio_periph_lab/vivado/radio_periph_lab.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]

@@ -70,7 +70,9 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param tcl.collectionResultDisplayLimit 0
 set_param chipscope.maxJobs 3
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg400-1
 
@@ -83,10 +85,7 @@ set_property parent.project_path D:/Git/radio_periph_lab/vivado/radio_periph_lab
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property ip_repo_paths {
-  d:/Git/radio_periph_lab/ip_repo/simple_fifo_1.0
-  d:/Git/radio_periph_lab/ip_repo
-} [current_project]
+set_property ip_repo_paths d:/Git/radio_periph_lab/ip_repo [current_project]
 update_ip_catalog
 set_property ip_output_repo d:/Git/radio_periph_lab/vivado/radio_periph_lab.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
@@ -96,8 +95,6 @@ read_vhdl -library xil_defaultlib D:/Git/radio_periph_lab/src/toplevel.vhd
 add_files D:/Git/radio_periph_lab/vivado/radio_periph_lab.srcs/sources_1/bd/design_1/design_1.bd
 set_property used_in_implementation false [get_files -all d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_axi_iic_0_0/design_1_axi_iic_0_0_board.xdc]
 set_property used_in_implementation false [get_files -all d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_axi_iic_0_0/design_1_axi_iic_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/fir2_3125/constraints/fir_compiler_v7_2.xdc]
-set_property used_in_implementation false [get_files -all d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/fir1_125/constraints/fir_compiler_v7_2.xdc]
 set_property used_in_implementation false [get_files -all d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc]
 set_property used_in_implementation false [get_files -all d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_rst_ps7_0_125M_0/design_1_rst_ps7_0_125M_0_board.xdc]
@@ -112,6 +109,8 @@ set_property used_in_implementation false [get_files -all d:/Git/radio_periph_la
 set_property used_in_implementation false [get_files -all d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_xpm_cdc_gen_0_0/synth/design_1_xpm_cdc_gen_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_xpm_cdc_gen_0_0/design_1_xpm_cdc_gen_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_axis_broadcaster_0_0/design_1_axis_broadcaster_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/fir1_125/constraints/fir_compiler_v7_2.xdc]
+set_property used_in_implementation false [get_files -all d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_full_radio_0_0/src/fir2_3125/constraints/fir_compiler_v7_2.xdc]
 set_property used_in_implementation false [get_files -all d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_rst_clk125_125M_0/design_1_rst_clk125_125M_0_board.xdc]
 set_property used_in_implementation false [get_files -all d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_rst_clk125_125M_0/design_1_rst_clk125_125M_0.xdc]
 set_property used_in_implementation false [get_files -all d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_rst_clk125_125M_0/design_1_rst_clk125_125M_0_ooc.xdc]

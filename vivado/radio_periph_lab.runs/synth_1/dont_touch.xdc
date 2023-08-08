@@ -9,9 +9,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1 ||
 # IP: bd/design_1/ip/design_1_axi_iic_0_0/design_1_axi_iic_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_axi_iic_0_0 || ORIG_REF_NAME==design_1_axi_iic_0_0} -quiet] -quiet
 
-# IP: bd/design_1/ip/design_1_full_radio_0_0/design_1_full_radio_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_full_radio_0_0 || ORIG_REF_NAME==design_1_full_radio_0_0} -quiet] -quiet
-
 # IP: bd/design_1/ip/design_1_lowlevel_dac_intfc_0_0/design_1_lowlevel_dac_intfc_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_lowlevel_dac_intfc_0_0 || ORIG_REF_NAME==design_1_lowlevel_dac_intfc_0_0} -quiet] -quiet
 
@@ -33,14 +30,17 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_sy
 # IP: bd/design_1/ip/design_1_xpm_cdc_gen_0_0/design_1_xpm_cdc_gen_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_xpm_cdc_gen_0_0 || ORIG_REF_NAME==design_1_xpm_cdc_gen_0_0} -quiet] -quiet
 
-# IP: bd/design_1/ip/design_1_simple_fifo_0_0/design_1_simple_fifo_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_simple_fifo_0_0 || ORIG_REF_NAME==design_1_simple_fifo_0_0} -quiet] -quiet
-
 # IP: bd/design_1/ip/design_1_axis_broadcaster_0_0/design_1_axis_broadcaster_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_axis_broadcaster_0_0 || ORIG_REF_NAME==design_1_axis_broadcaster_0_0} -quiet] -quiet
 
+# IP: bd/design_1/ip/design_1_full_radio_0_0/design_1_full_radio_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_full_radio_0_0 || ORIG_REF_NAME==design_1_full_radio_0_0} -quiet] -quiet
+
 # IP: bd/design_1/ip/design_1_rst_clk125_125M_0/design_1_rst_clk125_125M_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_rst_clk125_125M_0 || ORIG_REF_NAME==design_1_rst_clk125_125M_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_simple_fifo_0_1/design_1_simple_fifo_0_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_simple_fifo_0_1 || ORIG_REF_NAME==design_1_simple_fifo_0_1} -quiet] -quiet
 
 # IP: bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_auto_pc_0 || ORIG_REF_NAME==design_1_auto_pc_0} -quiet] -quiet

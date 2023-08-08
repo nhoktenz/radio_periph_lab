@@ -33,9 +33,9 @@
       "system_ila_0": "",
       "xpm_cdc_gen_0": "",
       "axis_broadcaster_0": "",
-      "simple_fifo_0": "",
       "full_radio_0": "",
-      "rst_clk125_125M": ""
+      "rst_clk125_125M": "",
+      "simple_fifo_0": ""
     },
     "interface_ports": {
       "DDR": {
@@ -2017,15 +2017,27 @@
             "value": "1"
           },
           "C_NUM_MONITOR_SLOTS": {
-            "value": "2"
+            "value": "4"
           },
           "C_PROBE0_MU_CNT": {
             "value": "2"
           },
           "C_SLOT": {
-            "value": "1"
+            "value": "3"
           },
           "C_SLOT_0_INTF_TYPE": {
+            "value": "xilinx.com:interface:axis_rtl:1.0"
+          },
+          "C_SLOT_2_APC_EN": {
+            "value": "0"
+          },
+          "C_SLOT_2_INTF_TYPE": {
+            "value": "xilinx.com:interface:axis_rtl:1.0"
+          },
+          "C_SLOT_2_TXN_CNTR_EN": {
+            "value": "0"
+          },
+          "C_SLOT_3_INTF_TYPE": {
             "value": "xilinx.com:interface:axis_rtl:1.0"
           }
         },
@@ -2039,6 +2051,16 @@
             "mode": "Monitor",
             "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+          },
+          "SLOT_2_AXIS": {
+            "mode": "Monitor",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
+          },
+          "SLOT_3_AXIS": {
+            "mode": "Monitor",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
           }
         }
       },
@@ -2066,24 +2088,24 @@
             "value": "0"
           },
           "M00_TDATA_REMAP": {
-            "value": "tdata[15:0]"
+            "value": "tdata[31:0]"
           },
           "M01_TDATA_REMAP": {
-            "value": "tdata[15:0]"
+            "value": "tdata[31:0]"
+          },
+          "M02_TDATA_REMAP": {
+            "value": "tdata[31:0]"
           },
           "M_TDATA_NUM_BYTES": {
+            "value": "4"
+          },
+          "NUM_MI": {
             "value": "2"
           },
           "S_TDATA_NUM_BYTES": {
             "value": "4"
           }
         }
-      },
-      "simple_fifo_0": {
-        "vlnv": "xilinx.com:user:simple_fifo:1.0",
-        "xci_name": "design_1_simple_fifo_0_0",
-        "xci_path": "ip\\design_1_simple_fifo_0_0\\design_1_simple_fifo_0_0.xci",
-        "inst_hier_path": "simple_fifo_0"
       },
       "full_radio_0": {
         "vlnv": "jhu.edu:user:full_radio:1.0",
@@ -2096,6 +2118,12 @@
         "xci_name": "design_1_rst_clk125_125M_0",
         "xci_path": "ip\\design_1_rst_clk125_125M_0\\design_1_rst_clk125_125M_0.xci",
         "inst_hier_path": "rst_clk125_125M"
+      },
+      "simple_fifo_0": {
+        "vlnv": "xilinx.com:user:simple_fifo:1.0",
+        "xci_name": "design_1_simple_fifo_0_1",
+        "xci_path": "ip\\design_1_simple_fifo_0_1\\design_1_simple_fifo_0_1.xci",
+        "inst_hier_path": "simple_fifo_0"
       }
     },
     "interface_nets": {
@@ -2107,8 +2135,9 @@
       },
       "axis_broadcaster_0_M00_AXIS": {
         "interface_ports": [
+          "simple_fifo_0/S_AXIS",
           "axis_broadcaster_0/M00_AXIS",
-          "simple_fifo_0/S_AXIS"
+          "system_ila_0/SLOT_3_AXIS"
         ]
       },
       "axis_broadcaster_0_M01_AXIS": {
@@ -2121,7 +2150,8 @@
       "full_radio_0_m_axis": {
         "interface_ports": [
           "full_radio_0/m_axis",
-          "axis_broadcaster_0/S_AXIS"
+          "axis_broadcaster_0/S_AXIS",
+          "system_ila_0/SLOT_2_AXIS"
         ]
       },
       "processing_system7_0_DDR": {
@@ -2157,8 +2187,8 @@
       },
       "ps7_0_axi_periph_M02_AXI": {
         "interface_ports": [
-          "ps7_0_axi_periph/M02_AXI",
-          "simple_fifo_0/S00_AXI"
+          "simple_fifo_0/S00_AXI",
+          "ps7_0_axi_periph/M02_AXI"
         ]
       }
     },
@@ -2212,7 +2242,6 @@
       "rst_clk125_125M_peripheral_aresetn": {
         "ports": [
           "rst_clk125_125M/peripheral_aresetn",
-          "simple_fifo_0/s00_axi_aresetn",
           "ps7_0_axi_periph/M02_ARESETN"
         ]
       },
@@ -2240,9 +2269,9 @@
           "xpm_cdc_gen_0/dest_clk",
           "full_radio_0/s00_axi_aclk",
           "axis_broadcaster_0/aclk",
-          "simple_fifo_0/s00_axi_aclk",
           "ps7_0_axi_periph/M02_ACLK",
-          "rst_clk125_125M/slowest_sync_clk"
+          "rst_clk125_125M/slowest_sync_clk",
+          "simple_fifo_0/s00_axi_aclk"
         ]
       },
       "xpm_cdc_gen_0_dest_rst_out": {
@@ -2253,7 +2282,8 @@
           "ps7_0_axi_periph/M01_ARESETN",
           "system_ila_0/resetn",
           "full_radio_0/s00_axi_aresetn",
-          "axis_broadcaster_0/aresetn"
+          "axis_broadcaster_0/aresetn",
+          "simple_fifo_0/s00_axi_aresetn"
         ]
       }
     },

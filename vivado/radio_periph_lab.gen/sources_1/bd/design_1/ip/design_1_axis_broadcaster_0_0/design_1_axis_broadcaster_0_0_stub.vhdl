@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
--- Date        : Sun Aug  6 02:54:11 2023
+-- Date        : Sun Aug  6 13:20:59 2023
 -- Host        : Thuong-Nguyen-PC running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_axis_broadcaster_0_0/design_1_axis_broadcaster_0_0_stub.vhdl
@@ -21,7 +21,7 @@ entity design_1_axis_broadcaster_0_0 is
     s_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     m_axis_tvalid : out STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axis_tready : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 )
+    m_axis_tdata : out STD_LOGIC_VECTOR ( 63 downto 0 )
   );
 
 end design_1_axis_broadcaster_0_0;
@@ -30,7 +30,7 @@ architecture stub of design_1_axis_broadcaster_0_0 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "aclk,aresetn,s_axis_tvalid,s_axis_tready,s_axis_tdata[31:0],m_axis_tvalid[1:0],m_axis_tready[1:0],m_axis_tdata[31:0]";
+attribute black_box_pad_pin of stub : architecture is "aclk,aresetn,s_axis_tvalid,s_axis_tready,s_axis_tdata[31:0],m_axis_tvalid[1:0],m_axis_tready[1:0],m_axis_tdata[63:0]";
 attribute X_CORE_INFO : string;
 attribute X_CORE_INFO of stub : architecture is "top_design_1_axis_broadcaster_0_0,Vivado 2022.1";
 begin

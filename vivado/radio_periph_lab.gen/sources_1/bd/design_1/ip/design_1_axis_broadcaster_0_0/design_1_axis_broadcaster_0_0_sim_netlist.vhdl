@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
--- Date        : Sun Aug  6 02:54:11 2023
+-- Date        : Sun Aug  6 13:20:59 2023
 -- Host        : Thuong-Nguyen-PC running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               d:/Git/radio_periph_lab/vivado/radio_periph_lab.gen/sources_1/bd/design_1/ip/design_1_axis_broadcaster_0_0/design_1_axis_broadcaster_0_0_sim_netlist.vhdl
@@ -137,9 +137,9 @@ entity design_1_axis_broadcaster_0_0_top_design_1_axis_broadcaster_0_0 is
     s_axis_tuser : in STD_LOGIC_VECTOR ( 0 to 0 );
     m_axis_tvalid : out STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axis_tready : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    m_axis_tstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    m_axis_tkeep : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m_axis_tdata : out STD_LOGIC_VECTOR ( 63 downto 0 );
+    m_axis_tstrb : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    m_axis_tkeep : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axis_tlast : out STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axis_tid : out STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axis_tdest : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -154,7 +154,7 @@ entity design_1_axis_broadcaster_0_0_top_design_1_axis_broadcaster_0_0 is
   attribute C_FAMILY : string;
   attribute C_FAMILY of design_1_axis_broadcaster_0_0_top_design_1_axis_broadcaster_0_0 : entity is "zynq";
   attribute C_M_AXIS_TDATA_WIDTH : integer;
-  attribute C_M_AXIS_TDATA_WIDTH of design_1_axis_broadcaster_0_0_top_design_1_axis_broadcaster_0_0 : entity is 16;
+  attribute C_M_AXIS_TDATA_WIDTH of design_1_axis_broadcaster_0_0_top_design_1_axis_broadcaster_0_0 : entity is 32;
   attribute C_M_AXIS_TUSER_WIDTH : integer;
   attribute C_M_AXIS_TUSER_WIDTH of design_1_axis_broadcaster_0_0_top_design_1_axis_broadcaster_0_0 : entity is 1;
   attribute C_NUM_MI_SLOTS : integer;
@@ -211,19 +211,27 @@ architecture STRUCTURE of design_1_axis_broadcaster_0_0_top_design_1_axis_broadc
   signal \<const0>\ : STD_LOGIC;
   signal \^s_axis_tdata\ : STD_LOGIC_VECTOR ( 31 downto 0 );
 begin
-  \^s_axis_tdata\(15 downto 0) <= s_axis_tdata(15 downto 0);
-  m_axis_tdata(31 downto 16) <= \^s_axis_tdata\(15 downto 0);
-  m_axis_tdata(15 downto 0) <= \^s_axis_tdata\(15 downto 0);
+  \^s_axis_tdata\(31 downto 0) <= s_axis_tdata(31 downto 0);
+  m_axis_tdata(63 downto 32) <= \^s_axis_tdata\(31 downto 0);
+  m_axis_tdata(31 downto 0) <= \^s_axis_tdata\(31 downto 0);
   m_axis_tdest(1) <= \<const0>\;
   m_axis_tdest(0) <= \<const0>\;
   m_axis_tid(1) <= \<const0>\;
   m_axis_tid(0) <= \<const0>\;
+  m_axis_tkeep(7) <= \<const0>\;
+  m_axis_tkeep(6) <= \<const0>\;
+  m_axis_tkeep(5) <= \<const0>\;
+  m_axis_tkeep(4) <= \<const0>\;
   m_axis_tkeep(3) <= \<const0>\;
   m_axis_tkeep(2) <= \<const0>\;
   m_axis_tkeep(1) <= \<const0>\;
   m_axis_tkeep(0) <= \<const0>\;
   m_axis_tlast(1) <= \<const0>\;
   m_axis_tlast(0) <= \<const0>\;
+  m_axis_tstrb(7) <= \<const0>\;
+  m_axis_tstrb(6) <= \<const0>\;
+  m_axis_tstrb(5) <= \<const0>\;
+  m_axis_tstrb(4) <= \<const0>\;
   m_axis_tstrb(3) <= \<const0>\;
   m_axis_tstrb(2) <= \<const0>\;
   m_axis_tstrb(1) <= \<const0>\;
@@ -257,7 +265,7 @@ entity design_1_axis_broadcaster_0_0 is
     s_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     m_axis_tvalid : out STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axis_tready : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 )
+    m_axis_tdata : out STD_LOGIC_VECTOR ( 63 downto 0 )
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of design_1_axis_broadcaster_0_0 : entity is true;
@@ -272,9 +280,9 @@ end design_1_axis_broadcaster_0_0;
 architecture STRUCTURE of design_1_axis_broadcaster_0_0 is
   signal NLW_inst_m_axis_tdest_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal NLW_inst_m_axis_tid_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal NLW_inst_m_axis_tkeep_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal NLW_inst_m_axis_tkeep_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal NLW_inst_m_axis_tlast_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal NLW_inst_m_axis_tstrb_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal NLW_inst_m_axis_tstrb_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal NLW_inst_m_axis_tuser_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   attribute C_AXIS_SIGNAL_SET : integer;
   attribute C_AXIS_SIGNAL_SET of inst : label is 3;
@@ -285,7 +293,7 @@ architecture STRUCTURE of design_1_axis_broadcaster_0_0 is
   attribute C_FAMILY : string;
   attribute C_FAMILY of inst : label is "zynq";
   attribute C_M_AXIS_TDATA_WIDTH : integer;
-  attribute C_M_AXIS_TDATA_WIDTH of inst : label is 16;
+  attribute C_M_AXIS_TDATA_WIDTH of inst : label is 32;
   attribute C_M_AXIS_TUSER_WIDTH : integer;
   attribute C_M_AXIS_TUSER_WIDTH of inst : label is 1;
   attribute C_NUM_MI_SLOTS : integer;
@@ -342,8 +350,8 @@ architecture STRUCTURE of design_1_axis_broadcaster_0_0 is
   attribute X_INTERFACE_PARAMETER of aresetn : signal is "XIL_INTERFACENAME RSTIF, POLARITY ACTIVE_LOW, INSERT_VIP 0, TYPE INTERCONNECT";
   attribute X_INTERFACE_INFO of s_axis_tready : signal is "xilinx.com:interface:axis:1.0 S_AXIS TREADY";
   attribute X_INTERFACE_INFO of s_axis_tvalid : signal is "xilinx.com:interface:axis:1.0 S_AXIS TVALID";
-  attribute X_INTERFACE_INFO of m_axis_tdata : signal is "xilinx.com:interface:axis:1.0 M00_AXIS TDATA [15:0] [15:0], xilinx.com:interface:axis:1.0 M01_AXIS TDATA [15:0] [31:16]";
-  attribute X_INTERFACE_PARAMETER of m_axis_tdata : signal is "XIL_INTERFACENAME M00_AXIS, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN design_1_clk125, LAYERED_METADATA undef, INSERT_VIP 0, XIL_INTERFACENAME M01_AXIS, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN design_1_clk125, LAYERED_METADATA undef, INSERT_VIP 0";
+  attribute X_INTERFACE_INFO of m_axis_tdata : signal is "xilinx.com:interface:axis:1.0 M00_AXIS TDATA [31:0] [31:0], xilinx.com:interface:axis:1.0 M01_AXIS TDATA [31:0] [63:32]";
+  attribute X_INTERFACE_PARAMETER of m_axis_tdata : signal is "XIL_INTERFACENAME M00_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN design_1_clk125, LAYERED_METADATA undef, INSERT_VIP 0, XIL_INTERFACENAME M01_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 125000000, PHASE 0.0, CLK_DOMAIN design_1_clk125, LAYERED_METADATA undef, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of m_axis_tready : signal is "xilinx.com:interface:axis:1.0 M00_AXIS TREADY [0:0] [0:0], xilinx.com:interface:axis:1.0 M01_AXIS TREADY [0:0] [1:1]";
   attribute X_INTERFACE_INFO of m_axis_tvalid : signal is "xilinx.com:interface:axis:1.0 M00_AXIS TVALID [0:0] [0:0], xilinx.com:interface:axis:1.0 M01_AXIS TVALID [0:0] [1:1]";
   attribute X_INTERFACE_INFO of s_axis_tdata : signal is "xilinx.com:interface:axis:1.0 S_AXIS TDATA";
@@ -354,17 +362,16 @@ inst: entity work.design_1_axis_broadcaster_0_0_top_design_1_axis_broadcaster_0_
       aclk => aclk,
       aclken => '1',
       aresetn => aresetn,
-      m_axis_tdata(31 downto 0) => m_axis_tdata(31 downto 0),
+      m_axis_tdata(63 downto 0) => m_axis_tdata(63 downto 0),
       m_axis_tdest(1 downto 0) => NLW_inst_m_axis_tdest_UNCONNECTED(1 downto 0),
       m_axis_tid(1 downto 0) => NLW_inst_m_axis_tid_UNCONNECTED(1 downto 0),
-      m_axis_tkeep(3 downto 0) => NLW_inst_m_axis_tkeep_UNCONNECTED(3 downto 0),
+      m_axis_tkeep(7 downto 0) => NLW_inst_m_axis_tkeep_UNCONNECTED(7 downto 0),
       m_axis_tlast(1 downto 0) => NLW_inst_m_axis_tlast_UNCONNECTED(1 downto 0),
       m_axis_tready(1 downto 0) => m_axis_tready(1 downto 0),
-      m_axis_tstrb(3 downto 0) => NLW_inst_m_axis_tstrb_UNCONNECTED(3 downto 0),
+      m_axis_tstrb(7 downto 0) => NLW_inst_m_axis_tstrb_UNCONNECTED(7 downto 0),
       m_axis_tuser(1 downto 0) => NLW_inst_m_axis_tuser_UNCONNECTED(1 downto 0),
       m_axis_tvalid(1 downto 0) => m_axis_tvalid(1 downto 0),
-      s_axis_tdata(31 downto 16) => B"0000000000000000",
-      s_axis_tdata(15 downto 0) => s_axis_tdata(15 downto 0),
+      s_axis_tdata(31 downto 0) => s_axis_tdata(31 downto 0),
       s_axis_tdest(0) => '0',
       s_axis_tid(0) => '0',
       s_axis_tkeep(3 downto 0) => B"1111",
